@@ -1,4 +1,6 @@
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by saazimi on 09/08/2018.
@@ -8,16 +10,19 @@ public class Vehicle {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int VID;
     private String VName;
-    @ManyToOne
-    @JoinColumn(name = "Owner_id")
-    private Student owner;
+    @ManyToMany(mappedBy = "Student_vehicles")
+    private Collection<Student> owner = new ArrayList<Student>();
 
-    public Student getOwner() {
-        return owner;
+
+
+
+
+    public void setOwner(Collection<Student> owner) {
+        this.owner = owner;
     }
 
-    public void setOwner(Student owner) {
-        this.owner = owner;
+    public Collection getOwner() {
+        return owner;
     }
 
     public int getVID() {

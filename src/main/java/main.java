@@ -11,19 +11,19 @@ public class main {
         Student student = new Student();
         student.setUsername("Ali Azimi");
 
+        Student student2 = new Student();
+        student2.setUsername("Mahmood Kazmi");
 
         Vehicle vehicle = new Vehicle();
         vehicle.setVName("H30 Cross");
         Vehicle vehicle2 = new Vehicle();
         vehicle2.setVName("Sandero");
 
-//        student.getStudent_vehicles().add(vehicle);
-//        student.getStudent_vehicles().add(vehicle2);
+        student.getStudent_vehicles().add(vehicle);
+        student.getStudent_vehicles().add(vehicle2);
 
-        vehicle.setOwner(student);
-        vehicle2.setOwner(student);
-
-
+        vehicle.getOwner().add(student);
+        vehicle2.getOwner().add(student);
 
         SessionFactory factory = new org.hibernate.cfg.Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = factory.openSession();

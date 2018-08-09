@@ -6,19 +6,26 @@ import java.util.Collection;
  * Created by saazimi on 09/08/2018.
  */
 @Entity
-@Table(name = "Student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Student_id;
     private String username;
-//    @OneToMany
-//    @JoinTable(name = "User_Vehicle" ,
-//            joinColumns = @JoinColumn(name = "USER_ID"),
-//            inverseJoinColumns = @JoinColumn (name = "Vhicle_Id")
-//    )
-//    private Collection<Vehicle> Student_vehicles = new ArrayList<Vehicle>();
-//
+    @ManyToMany
+    @JoinColumns({@JoinColumn(name = "Student_vehicles")})
+    private Collection<Vehicle> Student_vehicles = new ArrayList<Vehicle>();
+
+
+
+    public Collection<Vehicle> getStudent_vehicles() {
+        return Student_vehicles;
+    }
+
+    public void setStudent_vehicles(Collection<Vehicle> student_vehicles) {
+        Student_vehicles = student_vehicles;
+    }
+
+
 
     public int getStudent_id() {
         return Student_id;
