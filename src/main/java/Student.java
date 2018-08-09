@@ -1,4 +1,6 @@
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by saazimi on 09/08/2018.
@@ -10,18 +12,13 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Student_id;
     private String username;
-    @OneToOne
-    @JoinColumn(name = "vehicle_ID")
-
-    private Vehicle Student_vehicle;
-
-    public Vehicle getStudent_vehicle() {
-        return Student_vehicle;
-    }
-
-    public void setStudent_vehicle(Vehicle student_vehicle) {
-        Student_vehicle = student_vehicle;
-    }
+//    @OneToMany
+//    @JoinTable(name = "User_Vehicle" ,
+//            joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn (name = "Vhicle_Id")
+//    )
+//    private Collection<Vehicle> Student_vehicles = new ArrayList<Vehicle>();
+//
 
     public int getStudent_id() {
         return Student_id;

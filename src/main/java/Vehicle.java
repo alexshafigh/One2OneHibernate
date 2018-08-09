@@ -8,6 +8,17 @@ public class Vehicle {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int VID;
     private String VName;
+    @ManyToOne
+    @JoinColumn(name = "Owner_id")
+    private Student owner;
+
+    public Student getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Student owner) {
+        this.owner = owner;
+    }
 
     public int getVID() {
         return VID;
